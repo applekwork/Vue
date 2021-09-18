@@ -7,12 +7,53 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 50px;
+        }
+        .demo1 {
+            background-color: aqua;
+        }
+        .box1 {
+            background:#f40;
+            padding: 20px;
+            height: 100px;
+        }
+        .box2 {
+            background-color: antiquewhite;
+            height: 50px;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
+     <!--
+        1、prevent： 组织默认事件（常用）
+        2、stop ：阻止事件冒泡（常用）
+        3、once ：事件只触发一次（常用）
+        4、capture ：使用事件的捕获模式
+        5、self ：只有event.target 是当前操作的元素才触发事件
+        6、passive ：事件的默认行为立即执行，无需等待事件回调执行完毕
+     -->
     <div id="root">
         <h2>欢迎来到{{name}}</h2>
         <a href="https://www.baidu.com/" @click.prevent="showInfo">点我</a>
+        <!-- 阻止事件冒泡（常用） -->
+        <div class="demo1" @click="showInfo">
+            阻止事件冒泡
+            <button @click.stop.prevent ="showInfo">点我提示信息</button>
+        </div>
+        <!-- once ：事件只触发一次（常用） -->
+         <button @click.once="showInfo">点我提示信息</button>
+         <div class="box1" @click="showMsg(1)">
+             div1
+             <div class="box2" @click="showMsg(2)">div2</div>
+         </div>
+         <div class="demo1" @click.self = "showInfo">
+             <button @click="showInfo">点我提示信息</button>
+         </div>
+
     </div>
 
     <script>
@@ -24,7 +65,11 @@
             },
             methods: {
                 showInfo(e) {
+                    e.stopPropagation();
                     alert('同学你好')
+                },
+                showMsg(value) {
+                    console.log(value);
                 }
             }
         });
