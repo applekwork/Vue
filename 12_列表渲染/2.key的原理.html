@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!--
+        1.虚拟DOM中key的作用：
+            key是虚拟DOM对象的标识，当状态中的数据发生变化时，Vue会根据新数据生成新的虚拟DOM
+            随后Vue进行新旧虚拟DOM的差异比较，比较规则如下：
+        2.对比规则
+            2.1 旧虚拟DOM中找到了与新虚拟DOM相同的key
+                2.1.1 若虚拟DOM中内容没变，直接用之前的真实DOM
+                2.1.2 若虚拟DOM中内容变了，则生成新的真实DOM，随后替换掉页面中的真实DOM
+            2.2 旧虚拟DOM中未找到与新虚拟DOM相同的key，创建新的真实的DOM，随后渲染到页面
+        3.用index作为key可能引发的问题：
+            3.1 若对数据进行：逆序添加、逆序删除等破坏顺序的操作会产生没有必要的真实DOM更新==>界面效果没问题，但效率低
+            3.2 如果结构中还包含输入类的DOM会产生错误DOM更新==>界面有问题
+        4.开发中如何选择key?
+            4.1 最好使用每条数据的唯一标识作为key,比如id、身份证号
+            4.2 如果不存在对数据的逆序添加删除等破坏顺序的操作，仅用于渲染列表用于展示使用index作为key是没有问题的
+     -->
+    <div id="root">
+        <ul>
+            <!-- 遍历数组 -->
+            <h2>人员列表</h2>
+            <button @click="add">添加一个老刘</button>
+            <li v-for="(p,index) in persons" :key="index">
+                {{p.name}}-{{p.age}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                persons: [{
+                        id: '001',
+                        name: '张三',
+                        age: 18
+                    },
+                    {
+                        id: '002',
+                        name: '李四',
+                        age: 19
+                    },
+                    {
+                        id: '003',
+                        name: '王五',
+                        age: 20
+                    },
+                ]
+            },
+            methods: {
+                add() {
+                    const p = {id:'004',name:'老刘',age:40}
+                    this.persons.unshift(p)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

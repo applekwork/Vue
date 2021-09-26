@@ -57,12 +57,16 @@
                 }
             }
         })
-        vm.$watch('isHot', {
+    //正常写法
+      /*   vm.$watch('isHot', {
             immediate: true,
             deep: true,
             handler(newValue, oldValue) {
                 console.log('isHot被改变了');
             }
+        }) */
+        vm.$watch('isHot',function(newValue, oldValue){
+            console.log('isHot被改变了');
         })
     </script>
 </body>
