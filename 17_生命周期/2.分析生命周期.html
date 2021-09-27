@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="root">
+        <h2>当前的值是:{{n}}</h2>
+        <button @click="add">点我+1</button>
+    </div>
+</body>
+    <script>
+     Vue.config.productionTip = false
+     //创建Vue实例,得到 ViewModel
+     const vm = new Vue({
+        el: '#root',
+        data: {
+            n:1
+        },
+        methods: {
+            add(){
+                this.n++
+            }
+        },
+        //此时无法通过vm访问到data中的数据，methods中的方法
+        //初始化：生命周期、时间、但数据代理还未开始
+        beforeCreate() {
+            console.log('beforeCreate');
+        },
+        //此时可以通过vm访问到data中的数据，methods中配置的方法
+        //初始化：数据监测、数据代理
+        //此阶段vue开始解析模板，生成虚拟DOM（内存中），页面还不能显示解析好的内容
+        created() {
+            console.log('created');
+            console.log(this);
+            debugger
+        },
+        /*
+         此时：
+            1.页面呈现的是未经Vue编译的DOM结构
+            2. 所有对DOM的操作，最终都不凑效
+            将内存中的虚拟DOM转为真实DOM插入页面
+         */
+        beforeMount() {
+
+        },
+        /*
+            此时：
+            1、页面中呈现的是经过Vue编译的DOM
+            2、对DOM的操作均奏效（尽可能避免）
+            至此初始化过程结束，一般在此进行，开启定时器，发送网络请求、订阅消息、绑定自定义事件、等初始化操作
+        */
+        mounted() {
+
+        },
+     });
+    </script>
+</html>

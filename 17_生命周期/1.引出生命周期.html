@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="root">
+    <h2 :style="{opacity}">欢迎欢迎</h2>
+    </div>
+
+</body>
+
+    <script >
+     Vue.config.productionTip = false
+     //创建Vue实例,得到 ViewModel
+     const vm = new Vue({
+        el: '#root',
+        data: {
+            a:true,
+            opacity:1
+        },
+        methods: {
+
+        },
+        //Vue完成模板的解析并把真实的元素放入页面后，挂载完毕调用
+        mounted() {
+             setInterval(() => {
+                 this.opacity -= 0.01
+                 if(vm.opacity <= 0) vm.opacity=1
+             }, 16);
+        },
+     });
+
+     //通过外部的定时器实现不推荐
+/*      setInterval(() => {
+         vm.opacity -= 0.01
+         if(vm.opacity <= 0) vm.opacity = 1
+     }, 16); */
+    </script>
+</html>
