@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: burlywood;
+        }
+
+        .content {
+            background: #e4df;
+            font-size: 20px;
+        }
+        .content::after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .float {
+            float: left;
+            margin-left: 100px;
+            margin-right: 100px;
+            width: 100px;
+            height: 500px;
+            background-color: blue;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Float 布局</h1>
+    <div class="box">
+        <p class="float"></p>
+        <p class="content">
+            Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float布局Float布局Float布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float布局Float布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float 布局Float布局Float布局Float 布局Float 布局Float 布局Float 布局Float 布局
+        </p>
+        <p>
+            预览效果如下，你会发现红色区域并不能把浮动元素包裹着，这是因为 float元素脱离了流式布局：预览效果如下，你会发现红色区域并不能把浮动元素包裹着，这是因为float元素脱离了流式布局：预览效果如下，你会发现红色区域并不能把浮动元素包裹着，这是因为 float元素脱离了流式布局：预览效果如下，你会发现红色区域并不能把浮动元素包裹着，这是因为 float元素脱离了流式布局：
+        </p>
+    </div>
+</body>
+
+</html>
