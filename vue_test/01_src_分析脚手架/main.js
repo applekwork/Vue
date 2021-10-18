@@ -1,4 +1,4 @@
-/* 
+/*
 	该文件是整个项目的入口文件
 */
 //引入Vue
@@ -8,9 +8,9 @@ import App from './App.vue'
 //关闭vue的生产提示
 Vue.config.productionTip = false
 
-/* 
+/*
 	关于不同版本的Vue：
-	
+
 		1.vue.js与vue.runtime.xxx.js的区别：
 				(1).vue.js是完整版的Vue，包含：核心功能+模板解析器。
 				(2).vue.runtime.xxx.js是运行版的Vue，只包含：核心功能；没有模板解析器。

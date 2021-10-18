@@ -12,5 +12,8 @@
 		mounted() {
 			// console.log('App',this)
 		},
+		computed: {
+
+		}
 	}
 </script>

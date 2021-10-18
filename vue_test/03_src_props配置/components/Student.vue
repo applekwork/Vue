@@ -24,7 +24,7 @@
 			}
 		},
 		//简单声明接收
-		// props:['name','age','sex'] 
+		// props:['name','age','sex']
 
 		//接收的同时对数据进行类型限制
 		/* props:{
@@ -32,7 +32,6 @@
 			age:Number,
 			sex:String
 		} */
-
 		//接收的同时对数据：进行类型限制+默认值的指定+必要性的限制
 		props:{
 			name:{

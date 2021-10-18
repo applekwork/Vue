@@ -17,3 +17,12 @@
 		},
 	}
 </script>
+<style lang="less">
+.demo{
+	background-color: #fff;
+	.qwe{
+		font-size: 18px;
+	}
+}
+
+</style>

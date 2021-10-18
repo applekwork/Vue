@@ -13,7 +13,7 @@ import App from './App.vue'
 import { Button,Row,DatePicker } from 'element-ui';
 
 //关闭Vue的生产提示
-Vue.config.productionTip = false
+// Vue.config.productionTip = false
 
 //应用ElementUI
 // Vue.use(ElementUI);

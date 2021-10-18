@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App.vue'
 //引入插件
 import vueResource from 'vue-resource'
+import vueConfig from '../vue.config'
 //关闭Vue的生产提示
 Vue.config.productionTip = false
 //使用插件
@@ -15,5 +16,5 @@ new Vue({
 	render: h => h(App),
 	beforeCreate() {
 		Vue.prototype.$bus = this
-	},
+	}
 })
